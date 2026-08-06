@@ -1,0 +1,136 @@
+.section {
+  padding: 90px 8%;
+}
+
+.section.mobile {
+  padding: 65px 24px;
+}
+
+/* Section Backgrounds */
+
+.about-section,
+.contact-section {
+  background: #151d26;
+}
+
+.projects-section {
+  background: #111820;
+}
+
+/* Education Section */
+
+.education-section {
+  background:
+    linear-gradient(rgba(17, 24, 32, 0.75), rgba(17, 24, 32, 0.75)),
+    url("../assets/ndkc.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Section Heading */
+
+.section-heading {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.section-label,
+.yellow-text {
+  color: #fdbb22 !important;
+}
+
+.section-label {
+  letter-spacing: 3px;
+}
+
+/* Cards */
+
+.dark-card,
+.project-card,
+.stat-card {
+  height: 100%;
+  background: rgba(28, 38, 49, 0.9);
+  border: none;
+  backdrop-filter: blur(6px);
+  transition: all 0.35s ease;
+}
+
+/* Text */
+
+.about-text {
+  color: #aab2bd;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.full-width,
+.contact-list {
+  width: 100%;
+}
+
+.skill-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats-row {
+  margin-top: 30px;
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-card .anticon {
+  color: #fdbb22;
+  font-size: 32px;
+}
+
+.skill-tags {
+  margin-top: 35px;
+}
+
+/* Projects */
+
+.project-card {
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.project-title {
+  margin-top: 8px !important;
+}
+
+/* Contact */
+
+.contact-icon {
+  color: #fdbb22;
+  font-size: 24px;
+}
+
+/* Hover Effects */
+
+.project-card:hover,
+.dark-card:hover,
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(253, 187, 34, 0.25);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}

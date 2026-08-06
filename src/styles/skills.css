@@ -1,0 +1,19 @@
+.skill-card {
+  text-align: center;
+}
+
+.skill-icon {
+  margin-bottom: 12px;
+  color: #fdbb22;
+  font-size: 42px;
+}
+
+.skill-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-heading h4 {
+  margin: 0 !important;
+}

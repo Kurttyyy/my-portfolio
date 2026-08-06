@@ -1,0 +1,97 @@
+.app-layout,
+.navbar,
+.hero-section,
+.about-section,
+.projects-section,
+.contact-section,
+.dark-card,
+.project-card,
+.stat-card,
+.footer {
+  transition: all 0.3s ease;
+}
+
+/* ========================= */
+/* DARK MODE */
+/* ========================= */
+
+.dark-mode {
+  background: #111820;
+}
+
+.dark-mode .navbar {
+  background: rgba(17, 24, 32, 0.95);
+}
+
+.dark-mode .hero-section,
+.dark-mode .projects-section {
+  background: #111820;
+}
+
+.dark-mode .about-section,
+.dark-mode .contact-section {
+  background: #151d26;
+}
+
+/* ========================= */
+/* LIGHT MODE */
+/* ========================= */
+
+.light-mode {
+  background: #f5f7fa;
+}
+
+.light-mode .navbar,
+.light-mode .hero-section,
+.light-mode .projects-section,
+.light-mode .footer {
+  background: #ffffff;
+}
+
+.light-mode .about-section,
+.light-mode .contact-section {
+  background: #f5f7fa;
+}
+
+.light-mode .dark-card,
+.light-mode .project-card,
+.light-mode .stat-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.light-mode .logo-text {
+  color: #222;
+}
+
+.light-mode .logo-text span,
+.light-mode .logo-icon,
+.light-mode .contact-icon,
+.light-mode .section-label {
+  color: #fdbb22 !important;
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4,
+.light-mode h5,
+.light-mode h6,
+.light-mode .ant-typography {
+  color: #222 !important;
+}
+
+.light-mode .about-text,
+.light-mode .hero-description,
+.light-mode .ant-typography-secondary {
+  color: #666 !important;
+}
+
+.light-mode .ant-progress-bg {
+  background: #fdbb22 !important;
+}
+
+.light-mode .ant-progress-inner {
+  background: #d9d9d9 !important;
+}

@@ -1,0 +1,13 @@
+.footer {
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.footer-links {
+  margin: 10px 0 22px;
+}
+
+.footer-links .ant-btn:hover {
+  color: #fdbb22;
+  border-color: #fdbb22;
+}
