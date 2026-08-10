@@ -3,6 +3,7 @@ import {
   GithubOutlined,
   MailOutlined,
 } from "@ant-design/icons";
+
 import {
   Button,
   Col,
@@ -12,7 +13,9 @@ import {
   Tag,
   Typography,
 } from "antd";
+
 import { TypeAnimation } from "react-type-animation";
+import profile from "../assets/profile.jpg";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -33,7 +36,7 @@ function HeroSection() {
     <section id="home" className="hero-section">
       <Row align="middle" gutter={[50, 50]}>
         <Col xs={24} lg={14}>
-          <Tag color="gold" className="available-tag">
+          <Tag className="available-tag">
             AVAILABLE FOR PROJECTS
           </Tag>
 
@@ -105,7 +108,7 @@ function HeroSection() {
           <Flex justify="center">
             <div className="profile-wrapper">
               <img
-                src="/profile.jpg"
+                src={profile}
                 alt="Kurt Ivan O. Samillano"
                 className="profile-image"
               />
