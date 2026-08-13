@@ -76,10 +76,22 @@ function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
   const scrollToSection = (id: string): void => {
     const section = document.getElementById(id);
 
-    section?.scrollIntoView({
+    if (!section) return;
+
+    section.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
+
+    section.classList.remove("section-click-animation");
+
+    void section.offsetWidth;
+
+    section.classList.add("section-click-animation");
+
+    setTimeout(() => {
+      section.classList.remove("section-click-animation");
+    }, 600);
 
     setActiveSection(id);
     setOpen(false);

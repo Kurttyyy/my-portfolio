@@ -6,8 +6,6 @@
   padding: 65px 24px;
 }
 
-/* Section Backgrounds */
-
 .about-section,
 .contact-section {
   background: #151d26;
@@ -17,8 +15,6 @@
   background: #111820;
 }
 
-/* Education Section */
-
 .education-section {
   background:
     linear-gradient(rgba(17, 24, 32, 0.75), rgba(17, 24, 32, 0.75)),
@@ -27,8 +23,6 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-/* Section Heading */
 
 .section-heading {
   margin-bottom: 45px;
@@ -44,8 +38,6 @@
   letter-spacing: 3px;
 }
 
-/* Cards */
-
 .dark-card,
 .project-card,
 .stat-card {
@@ -55,8 +47,6 @@
   backdrop-filter: blur(6px);
   transition: all 0.35s ease;
 }
-
-/* Text */
 
 .about-text {
   color: #aab2bd;
@@ -91,8 +81,6 @@
   margin-top: 35px;
 }
 
-/* Projects */
-
 .project-card {
   overflow: hidden;
 }
@@ -107,14 +95,10 @@
   margin-top: 8px !important;
 }
 
-/* Contact */
-
 .contact-icon {
   color: #fdbb22;
   font-size: 24px;
 }
-
-/* Hover Effects */
 
 .project-card:hover,
 .dark-card:hover,
@@ -133,4 +117,20 @@ button {
 
 button:hover {
   transform: translateY(-2px);
+}
+
+.section-click-animation {
+  animation: sectionEnter 0.6s ease;
+}
+
+@keyframes sectionEnter {
+  from {
+    opacity: 0.5;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
