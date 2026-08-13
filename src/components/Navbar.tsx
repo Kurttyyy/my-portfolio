@@ -40,34 +40,45 @@ function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
   const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
-    const handleScroll = (): void => {
-      const scrollPosition = window.scrollY + 180;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          );
 
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-
-        if (
-          section &&
-          scrollPosition >= section.offsetTop &&
-          scrollPosition < section.offsetTop + section.offsetHeight
-        ) {
-          setActiveSection(sectionId);
-          break;
+        if (visibleSections.length > 0) {
+          setActiveSection(visibleSections[0].target.id);
         }
+      },
+      {
+        root: null,
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: [0, 0.1, 0.25, 0.5],
       }
-    };
+    );
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
+    sections.forEach((id) => {
+      const section = document.getElementById(id);
+
+      if (section) {
+        observer.observe(section);
+      }
+    });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, []);
 
   const scrollToSection = (id: string): void => {
-    document.getElementById(id)?.scrollIntoView({
+    const section = document.getElementById(id);
+
+    section?.scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
 
     setActiveSection(id);
@@ -99,14 +110,11 @@ function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
         onChange={toggleTheme}
         checkedChildren={<MoonOutlined />}
         unCheckedChildren={<SunOutlined />}
-        aria-label="Change theme"
       />
 
       <Button
         type="primary"
         icon={<DownloadOutlined />}
-        href="/Kurt-Ivan-Samillano-CV.pdf"
-        download
       >
         Download CV
       </Button>
@@ -115,17 +123,21 @@ function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
 
   return (
     <>
-      <Flex className="navbar" align="center" justify="space-between">
+      <Flex
+        className="navbar"
+        align="center"
+        justify="space-between"
+      >
         <Space>
           <UserOutlined className="logo-icon" />
 
           <Text strong className="logo-text">
-            Kurt Ivan O. <span>Samillano</span>
+            Kurt Ivan <span>Samillano</span>
           </Text>
         </Space>
 
         {screens.lg ? (
-          <Space size="small">{menuItems}</Space>
+          <Space size="middle">{menuItems}</Space>
         ) : (
           <Button
             type="text"

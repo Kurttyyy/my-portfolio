@@ -1,6 +1,8 @@
 import { CheckCircleOutlined } from "@ant-design/icons";
 import { Card, Col, Grid, Image, Row, Tag, Typography } from "antd";
 
+import certificate from "../assets/certificate.png";
+
 const { Title, Paragraph, Text } = Typography;
 const { useBreakpoint } = Grid;
 
@@ -26,7 +28,7 @@ function CertificationsSection() {
         <Col xs={24} lg={18}>
           <Card className="project-card">
             <Image
-              src="/networking.png"
+              src={certificate}
               alt="Cisco Networking Basics Certificate"
               width="100%"
               preview

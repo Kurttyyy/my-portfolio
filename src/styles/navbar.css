@@ -23,7 +23,6 @@
 }
 
 /* Active navigation */
-
 .navbar .active-nav {
   position: relative;
   color: #fdbb22 !important;
@@ -33,14 +32,30 @@
 .navbar .active-nav::after {
   content: "";
   position: absolute;
+  left: 12px;
   right: 12px;
   bottom: 2px;
-  left: 12px;
   height: 2px;
   border-radius: 5px;
   background: #fdbb22;
 }
 
+/* Light mode active navigation */
 .light-mode .navbar .active-nav {
   color: #d99000 !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 14px 5%;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .logo-icon {
+    font-size: 20px;
+  }
 }

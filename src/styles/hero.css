@@ -3,6 +3,95 @@
   display: flex;
   align-items: center;
   padding: 70px 8%;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-mode .hero-section {
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(253, 187, 34, 0.12),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(0, 174, 255, 0.08),
+      transparent 25%
+    ),
+    #0d151e;
+}
+
+.dark-mode .hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      rgba(0, 174, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 174, 255, 0.08) 1px,
+      transparent 1px
+    );
+  background-size: 55px 55px;
+  animation: techGridMove 18s linear infinite;
+  pointer-events: none;
+}
+
+.light-mode .hero-section {
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(253, 187, 34, 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(22, 119, 255, 0.1),
+      transparent 25%
+    ),
+    #f7f9fc;
+}
+
+.light-mode .hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      rgba(22, 119, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(22, 119, 255, 0.08) 1px,
+      transparent 1px
+    );
+  background-size: 55px 55px;
+  animation: techGridMove 18s linear infinite;
+  pointer-events: none;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 18%;
+  right: 4%;
+  border-radius: 50%;
+  background: rgba(253, 187, 34, 0.12);
+  filter: blur(100px);
+  animation: techGlow 7s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-section .ant-row {
@@ -26,8 +115,6 @@
   font-size: 48px !important;
 }
 
-/* Typing Animation */
-
 .typing-wrapper {
   min-height: 50px;
   margin-bottom: 20px;
@@ -36,6 +123,9 @@
 .typing-text {
   font-size: 30px;
   font-weight: 400;
+}
+
+.dark-mode .typing-text {
   color: #ffffff;
 }
 
@@ -49,9 +139,16 @@
 
 .hero-description {
   max-width: 650px;
-  color: #aab2bd;
   font-size: 17px;
   line-height: 1.8;
+}
+
+.dark-mode .hero-description {
+  color: #aab2bd;
+}
+
+.light-mode .hero-description {
+  color: #555555;
 }
 
 .social-links {
@@ -63,8 +160,16 @@
   height: 380px;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(135deg, #fdbb22, #ff8a00);
-  box-shadow: 0 0 60px rgba(253, 187, 34, 0.4);
+  background: linear-gradient(
+    135deg,
+    #00aaff,
+    #fdbb22,
+    #ff8a00
+  );
+  box-shadow:
+    0 0 40px rgba(0, 174, 255, 0.25),
+    0 0 70px rgba(253, 187, 34, 0.35);
+  animation: profileGlow 4s ease-in-out infinite alternate;
 }
 
 .profile-image {
@@ -72,6 +177,45 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  border: 5px solid transparent;
+}
+
+@keyframes techGridMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 55px 55px;
+  }
+}
+
+@keyframes techGlow {
+  0% {
+    transform: translate(-20px, -20px) scale(1);
+  }
+
+  50% {
+    transform: translate(-80px, 40px) scale(1.15);
+  }
+
+  100% {
+    transform: translate(20px, 70px) scale(0.95);
+  }
+}
+
+@keyframes profileGlow {
+  from {
+    box-shadow:
+      0 0 30px rgba(0, 174, 255, 0.2),
+      0 0 50px rgba(253, 187, 34, 0.25);
+  }
+
+  to {
+    box-shadow:
+      0 0 55px rgba(0, 174, 255, 0.35),
+      0 0 90px rgba(253, 187, 34, 0.45);
+  }
 }
 
 @media (max-width: 768px) {
@@ -96,5 +240,10 @@
     width: 280px;
     height: 280px;
     margin: auto;
+  }
+
+  .hero-section::after {
+    width: 300px;
+    height: 300px;
   }
 }
